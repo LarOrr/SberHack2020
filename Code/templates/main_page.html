@@ -1,5 +1,5 @@
 {% block scripts %}
-
+<script type="text/javascript" src="{{url_for('static', filename='js/main.js') }}"></script>
 {% endblock %}
 
 <!DOCTYPE html>
@@ -35,12 +35,16 @@
                 </select>
             </label>
         </div>
-        <div class="container">
-             <button type="submit" class="btn btn-success"
-{#            onclick="'/my/link/location';"#}
-             >Download analysis</button>
-        </div>
+
+        <table class=buttons>
+         <tr>
+            <td><button type="submit" class="btn btn-success">Download analysis</button>
+            <td><button type=button class="btn btn-info" style="position:relative; left:10px"
+         onclick="showChart('type-counts', start_date.value, end_date.value, 'pie')">Show chart</button>
+        </table>
     </form>
 </div>
+{# TODO change align #}
+<p id="resultChart">[]</p>
 </body>
 </html>

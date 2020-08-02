@@ -1,3 +1,5 @@
+from typing import Dict
+
 import pandas as pd
 
 # TODO move names to config?
@@ -21,5 +23,5 @@ def get_csv(start_date, end_date):
     return get_reviews_df(start_date, end_date).to_csv(sep='\t')
 
 
-def get_type_map(start_date, end_date):
+def get_type_counts(start_date, end_date) -> Dict[str, int]:
     return get_reviews_df(start_date, end_date).groupby('Intention').count()['Link'].to_dict()
