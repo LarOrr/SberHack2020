@@ -10,6 +10,8 @@ date_name = 'Date'
 def get_reviews_df(start_date: str, end_date: str) -> pd.DataFrame:
     # TODO cache reviews
     reviews = pd.read_csv(file_path, sep='\t')
+    # To include all times
+    end_date = end_date + "Z"
     reviews = reviews[reviews[date_name].between(start_date, end_date)]
     return reviews
 

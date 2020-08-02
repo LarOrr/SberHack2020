@@ -20,7 +20,6 @@ def get_start_end_dates():
     if end_date is None or end_date == '':
         # Is larger than any number char
         end_date = 'INF'
-        # TODO check dateformat
     if start_date > end_date:
         # TODO normal aborts
         abort(400)
@@ -36,7 +35,7 @@ def process_data():
     format_getter = None
     # start_date = request.form('start_date')
     # end_date = request.form('end-date')
-    # TODO format in header
+    # TODO format in header?
     if format == 'CSV':
         format_getter = file_reader.get_csv
     elif format == 'JSON':
